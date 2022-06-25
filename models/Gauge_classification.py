@@ -2,7 +2,7 @@ import os
 import numpy as np
 import tensorflow as tf
 import sys
-
+from guage_reading import get_gauge_value
 
 model_name = "model_3_2classes.h5"
 current_path = os.getcwd()
@@ -35,10 +35,15 @@ def getPredict(img):
   pred_label = classes[pred_probs.argmax()]
   percent_confident = 100*tf.reduce_max(pred_probs)
 
-  result = f"Predicted Class: {pred_label}, {percent_confident:0.2f}%"
 
-  return result
 
+  return pred_label, percent_confident
+
+file_path = "D:\DATASCI\Computer_vision\work\gauge_reader_model\models\chiller_gauge.jpg"
+
+result = getPredict(file_path)  
+
+print(f"Predicted Class: {result[0]}, {result[1]:0.2f}%\nGauge reading value: {get_gauge_value(file_path, min_value=-1, max_value=3, scale_width=0.5, scale_height=0.5):.2f} bar")
 
 # print(getPredict("D:\DATASCI\Computer_vision\work\gauge_reader_model\models\IMG_4307.jpg"))
 
