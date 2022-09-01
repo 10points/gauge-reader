@@ -247,6 +247,6 @@ def get_gauge_value(file_path, min_value, max_value,scale_width=0.25, scale_heig
 #                   cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,0), 1, cv2.LINE_AA ) 
 #   cv2.circle(output6, (x,y), 2, (0,255,0), 3)
 
-# get_gauge_value(file_path=r"D:\DATASCI\Computer_vision\work\gauge_reader_model\value_reading\chiller_gauge.jpg",
-#                 min_value=-1,
-#                 max_value=3)
+print(get_gauge_value(file_path="..\chiller_gauge.jpg",
+                min_value=-1,
+                max_value=3))
